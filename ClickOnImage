@@ -1,0 +1,26 @@
+
+public class ClickOnImageLink(){
+
+public static void main(String args[]){
+
+WebDriver driver = new ChromeDriver();
+driver.get("https://www.opencart.com/index.php?route=cms/demo");
+driver.manage().window().maximise();
+
+driver.findElement(By.xpath("//img[@title='OpenCart - Demo]")).click();
+
+//verity the title
+String actualTitle = driver.getTitle();
+String expectedTitle = "OpenCart - Open Source shopping Cart Solution";
+
+if(actualTitle.equals(expectedTitle))
+{
+System.out.println("SAME");
+}
+else
+{
+ System.out.println("Different");
+}
+
+driver.close();
+}
